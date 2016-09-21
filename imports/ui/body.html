@@ -1,0 +1,28 @@
+<body>
+  <header>
+  </header>
+  <div class = "container">
+    <nav class = "navbar navbar-default navbar-fixed-top">
+      <div class= "nav-header text-center">
+        <a class = "navbar-brand" href="#">Record Exercise</a>
+        {{> loginButtons}}
+      </div>
+    </nav>
+    <div class = "videoContainer">
+      {{> videoCaptureBasic}}
+      <h3 class = "text-center">Send to Physical Therapist</h3>
+        {{#each contacts}}
+          {{> contact}}
+        {{/each}}
+    </div>
+  </div>
+</body>
+ <template name = "videoCaptureBasic">
+  {{> lmVideoCapture opts=opts}}
+ </template>
+ 
+<template name="contact">
+  <div class = "contact" >
+    <strong>{{name}}:</strong> {{email}} {{onVideoRecorded}} 
+  </div>
+</template>
