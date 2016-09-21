@@ -1,18 +1,27 @@
 import { Meteor } from 'meteor/meteor';
 import '../imports/api/contacts.js';
+import '../imports/startup/server/mail-url.js';
 import { Email } from 'meteor/email'
 
 Meteor.startup(() => {
-	Meteor.methods({
+
+});
+Meteor.methods({
   		sendEmail: function (to, from, subject, text) {
-	    	check([to, from, subject, text], [String]);
-	    	this.unblock();
+
+  			console.log("in sending email")
+  			this.unblock(); // allows for asynchronous behavior
+
 	    	Email.send({
 	    		to: to,
 	    		from: from,
 	    		subject: subject,
 	    		text: text
 	    	});
+    	},
+
+    	testingHello: function(){
+    		console.log("hello")
+
     	}
 	});
-});
