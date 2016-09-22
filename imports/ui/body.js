@@ -4,21 +4,22 @@ import { Contacts } from '../api/contacts.js';
 import './body.html';
  
 Template.body.helpers({
-  contacts(){
-  	return Contacts.find({});
-  }
+	contacts(){
+		return Contacts.find({});
+	}
 });
 Template.body.events({
 	'click .contact'(){
 		console.log('clicked on Contact')
 		// sending video via email to PT address
-		Meteor.call('sendEmail',
-			this.email,
-			'janeSherlockWatson@gmail.com',
-			'Sent your exercise',
-			'Testing Testing',
-			Session.get('onVideoRecorded')
-		)
+		if(Session.get('onVideoRecorded')){
+			Meteor.call('sendEmail',
+				this.email,
+				'janeSherlockWatson@gmail.com',
+				'Sent your exercise',
+				Session.get('onVideoRecorded')
+			)
+		}
 	}
 });
 
@@ -38,7 +39,7 @@ Template.videoCaptureBasic.helpers({
 			Session.set('onVideoRecorded',base64Data);
 		}
 	};
-	return opts;
+		return opts;
 	}
 });
 Template.videoCaptureBasic.events({

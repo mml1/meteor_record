@@ -8,7 +8,7 @@ Meteor.startup(() => {
 });
 
 Meteor.methods({
-	sendEmail: function (to, from, subject, text, content) {
+	sendEmail: function (to, from, subject, content) {
 
 		console.log('sending email ...');
 		this.unblock(); // allows for asynchronous behavior
@@ -18,10 +18,10 @@ Meteor.methods({
 			from: from,
 			subject: subject,
 			text: content,
-			attachment: {
-				fileName: 'Exercise.txt',
-				content: "content",
-			},
+			// attachment: {
+			// 	fileName: 'Exercise.txt',
+			// 	content: "content",
+			// },
 		});
 	}
 });

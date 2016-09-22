@@ -8,7 +8,6 @@
 .videoContainer{
     margin-top: 10%;
     width:660px;
-
 }
 .video-capture-basic-record-btn{
 	display: inline-block;
@@ -21,7 +20,7 @@
     vertical-align: middle;
     border: 1px solid transparent;
     border-radius: 4px;
-    background-color: gray;
+    background-color: #404040;
     color: white;
 }
 .video-capture-basic-stop-btn{
@@ -41,14 +40,18 @@
     color: white;
 }
 .contact{
-    border: 1px solid #c0c0c0;
+    border: 1px solid transparent;
     border-radius: 5px;
-    width:660px;
+    width:100%;
     min-height: 10%;
     padding: 5%;
     font-size: 1.5em;
+    color:#000000;
 }
 .contact:nth-child(odd) {
-    background-color: gray;
+    background-color: #404040;
     color: #FFFFFF;
+}
+.contact:hover{
+    color:#808080;
 }
