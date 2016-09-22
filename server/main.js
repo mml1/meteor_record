@@ -6,22 +6,22 @@ import { Email } from 'meteor/email'
 Meteor.startup(() => {
 
 });
+
 Meteor.methods({
-  		sendEmail: function (to, from, subject, text) {
+	sendEmail: function (to, from, subject, text, content) {
 
-  			console.log("in sending email")
-  			this.unblock(); // allows for asynchronous behavior
+		console.log('sending email ...');
+		this.unblock(); // allows for asynchronous behavior
 
-	    	Email.send({
-	    		to: to,
-	    		from: from,
-	    		subject: subject,
-	    		text: text
-	    	});
-    	},
-
-    	testingHello: function(){
-    		console.log("hello")
-
-    	}
-	});
+		Email.send({
+			to: to,
+			from: from,
+			subject: subject,
+			text: content,
+			attachment: {
+				fileName: 'Exercise.txt',
+				content: "content",
+			},
+		});
+	}
+});

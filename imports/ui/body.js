@@ -10,20 +10,18 @@ Template.body.helpers({
 });
 Template.body.events({
 	'click .contact'(){
-		//able to get info of name clicked and video recorded
-		// need to either email or send to db for pt account
-		
-		console.log(this.email);
-		// console.log(Session.get('onVideoRecorded'))
-		
+		console.log('clicked on Contact')
+		// sending video via email to PT address
 		Meteor.call('sendEmail',
 			this.email,
 			'janeSherlockWatson@gmail.com',
 			'Sent your exercise',
-			'Testing Testing')
-		}
-		// Meteor.call('testingHello');
+			'Testing Testing',
+			Session.get('onVideoRecorded')
+		)
+	}
 });
+
 Template.videoCaptureBasic.helpers({
 	opts: function() {
 		var opts = {
